@@ -49,6 +49,8 @@ mv %{buildroot}/bin/stratisd %{buildroot}%{_sbindir}/stratisd-init
 # cargo install cruft.
 rm %{buildroot}/.crates.toml
 
+mkdir -p %{buildroot}%{_datadir}/dbus-1/system.d
+
 %{__install} -Dpm0644 -t %{buildroot}%{_datadir}/dbus-1/system.d stratisd.conf
 %{__install} -Dpm0644 -t %{buildroot}%{_mandir}/man8 docs/stratisd.8
 %{__install} -Dpm0644 -t %{buildroot}%{_unitdir} stratisd.service
